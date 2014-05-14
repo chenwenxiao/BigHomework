@@ -1,0 +1,12 @@
+data/test/test01.wav plp/test/test01.plp
+data/test/test02.wav plp/test/test02.plp
+data/test/test03.wav plp/test/test03.plp
+data/test/test04.wav plp/test/test04.plp
+data/test/test05.wav plp/test/test05.plp
+data/test/test06.wav plp/test/test06.plp
+data/test/test07.wav plp/test/test07.plp
+data/test/test08.wav plp/test/test08.plp
+data/test/test09.wav plp/test/test09.plp
+data/test/test10.wav plp/test/test10.plp
+data/test/test11.wav plp/test/test11.plp
+data/test/test12.wav plp/test/test12.plp

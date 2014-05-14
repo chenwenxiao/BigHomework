@@ -1,0 +1,104 @@
+﻿生成启动时间为 2014/4/27 星期日 23:48:34。
+     1>项目“E:\2014Spring\C++OOP\Project\音频场景分割\程序\Classification\Classification\Classification.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         D:\VisualStudio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt Audio.cpp GMModel.cpp MainTest.cpp ManualLabel.cpp SGModel.cpp Trainer.cpp Utility.cpp
+         Utility.cpp
+         Trainer.cpp
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(223): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\stdio.h(211) : 参见“fopen”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(248): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(252): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(268): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(273): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(289): warning C4018: “>=”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(307): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(312): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(328): warning C4018: “>=”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(347): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(352): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(380): warning C4018: “>=”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\trainer.cpp(256): warning C4101: “n”: 未引用的局部变量
+         SGModel.cpp
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(19): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(25): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(55): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(59): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(62): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(65): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(68): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(71): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\sgmodel.cpp(72): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+         ManualLabel.cpp
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(67): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(68): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(73): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(86): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(81): warning C4101: “m”: 未引用的局部变量
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(97): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(98): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(102): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(104): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\manuallabel.cpp(108): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+         MainTest.cpp
+         GMModel.cpp
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(81): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(85): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(88): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(91): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(94): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(97): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(98): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\string.h(118) : 参见“strcat”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(148): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(156): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(181): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(195): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(213): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(230): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(231): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(233): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(239): warning C4244: “/=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(241): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(243): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(247): warning C4244: “/=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(258): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\gmmodel.cpp(270): warning C4018: “<”: 有符号/无符号不匹配
+         Audio.cpp
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\audio.cpp(49): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\stdio.h(211) : 参见“fopen”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\audio.cpp(92): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visualstudio\vc\include\stdio.h(211) : 参见“fopen”的声明
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\audio.cpp(207): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\audio.cpp(222): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\classification\classification\audio.cpp(226): warning C4018: “<”: 有符号/无符号不匹配
+         正在生成代码...
+       Link:
+         D:\VisualStudio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Classification\Debug\Classification.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Classification\Debug\Classification.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Classification\Debug\Classification.lib" /MACHINE:X86 /SAFESEH Debug\Audio.obj
+         Debug\GMModel.obj
+         Debug\MainTest.obj
+         Debug\ManualLabel.obj
+         Debug\SGModel.obj
+         Debug\Trainer.obj
+         Debug\Utility.obj
+     1>Audio.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+         Classification.vcxproj -> E:\2014Spring\C++OOP\Project\音频场景分割\程序\Classification\Debug\Classification.exe
+       BscMake:
+         D:\VisualStudio\VC\bin\bscmake.exe /nologo /o"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Classification\Debug\Classification.bsc" /n Debug\Audio.sbr Debug\GMModel.sbr Debug\MainTest.sbr Debug\ManualLabel.sbr Debug\SGModel.sbr Debug\Trainer.sbr Debug\Utility.sbr
+     1>已完成生成项目“E:\2014Spring\C++OOP\Project\音频场景分割\程序\Classification\Classification\Classification.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:11.38

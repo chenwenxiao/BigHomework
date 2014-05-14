@@ -1,0 +1,12 @@
+data/test/test01.wav mfcc/test/test01.mfcc
+data/test/test02.wav mfcc/test/test02.mfcc
+data/test/test03.wav mfcc/test/test03.mfcc
+data/test/test04.wav mfcc/test/test04.mfcc
+data/test/test05.wav mfcc/test/test05.mfcc
+data/test/test06.wav mfcc/test/test06.mfcc
+data/test/test07.wav mfcc/test/test07.mfcc
+data/test/test08.wav mfcc/test/test08.mfcc
+data/test/test09.wav mfcc/test/test09.mfcc
+data/test/test10.wav mfcc/test/test10.mfcc
+data/test/test11.wav mfcc/test/test11.mfcc
+data/test/test12.wav mfcc/test/test12.mfcc

@@ -1,0 +1,12 @@
+data/test/test01.wav lpcc/test/test01.lpcc
+data/test/test02.wav lpcc/test/test02.lpcc
+data/test/test03.wav lpcc/test/test03.lpcc
+data/test/test04.wav lpcc/test/test04.lpcc
+data/test/test05.wav lpcc/test/test05.lpcc
+data/test/test06.wav lpcc/test/test06.lpcc
+data/test/test07.wav lpcc/test/test07.lpcc
+data/test/test08.wav lpcc/test/test08.lpcc
+data/test/test09.wav lpcc/test/test09.lpcc
+data/test/test10.wav lpcc/test/test10.lpcc
+data/test/test11.wav lpcc/test/test11.lpcc
+data/test/test12.wav lpcc/test/test12.lpcc
