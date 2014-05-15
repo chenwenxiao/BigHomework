@@ -27,30 +27,30 @@
 // 	"withoutmusic"
 // };
 
-classes types[] = 
+classes types[] =
 {
-	Silence, 
-	Voice, 
-	Speech, 
-	Music, 
-	SpeechMusic, 
-	Ad, 
-	Song, 
-	WithMusic, 
-	WithoutMusic, 
+	Silence,
+	Voice,
+	Speech,
+	Music,
+	SpeechMusic,
+	Ad,
+	Song,
+	WithMusic,
+	WithoutMusic,
 	Unknown
 };
 
-string classNames[] = 
+string classNames[] =
 {
-	"silence", 
-	"voice", 
-	"speech", 
-	"music", 
-	"speechmusic", 
-	"ad", 
-	"song", 
-	"withmusic", 
-	"withoutmusic", 
+	"silence",
+	"voice",
+	"speech",
+	"music",
+	"speechmusic",
+	"ad",
+	"song",
+	"withmusic",
+	"withoutmusic",
 	"unknown"
 };

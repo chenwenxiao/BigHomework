@@ -25,23 +25,23 @@ using namespace std;
 // 	WithMusic, 
 // 	WithoutMusic
 // } classes;
-
-typedef enum
+enum classes
 {
-	Silence = 0, 
-	Voice, 
-	Speech, 
-	Music, 
-	SpeechMusic, 
-	Ad, 
-	Song, 
-	WithMusic, 
-	WithoutMusic, 
+	Silence = 0,
+	Voice,
+	Speech,
+	Music,
+	SpeechMusic,
+	Ad,
+	Song,
+	WithMusic,
+	WithoutMusic,
 	Unknown
-} classes;
+};
 
-struct TimeSeg
+class TimeSeg
 {
+public:
 	int leftSample;
 	int rightSample;
 	int leftFrame;
@@ -51,14 +51,16 @@ struct TimeSeg
 	classes type;
 };
 
-struct Frame
+class Frame
 {
+public:
 	classes type;
 	vector<double> scores;					// scores of all classes
 };
 
-struct Clip
+class Clip
 {
+public:
 	int leftFrame;
 	int rightFrame;
 	int leftClip;

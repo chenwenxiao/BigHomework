@@ -21,10 +21,10 @@ public:
 	vector<ManualLabel *> manualLabelsTemp;
 
 	Segmentor(int classesNum);
-	~Segmentor();
+	virtual ~Segmentor();
 
-	void AddData(string scoresFilename, string manualLabelFilename);
 	void ProcessAll();
+	void AddData(string scoresFilename, string manualLabelFilename);
 
 private:
 	ofstream fout;

@@ -1,4 +1,5 @@
 #include "Segmentor.h"
+#include "CutByRulesBuilder.h"
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -34,9 +35,6 @@ Segmentor::Segmentor(int classesNum)
 		totalMisclassifiedTime.push_back(tempFloatVec);
 	}
 
-	fout.open("result/errorrate.txt");
-	fout.close();
-
 	epsilon = 0.05;
 }
 
@@ -69,7 +67,7 @@ void Segmentor::ProcessAll()
 {
 	float th = FindThreshold();
 	for (int i = 0; i < dataNum; i++) {
- 		Modify(th, true);
+		Modify(th, true);
 		Process(i);
 	}
 	OutputTotalErrorRateToFile();
@@ -93,13 +91,13 @@ float Segmentor::FindThreshold()
 		n++;
 	}
 
-	float minDist = abs(fas.at(0)-frs.at(0));
+	float minDist = abs(fas.at(0) - frs.at(0));
 	int minDistNo = 0;
 	fout.open("result/threshold.txt");
 	for (int i = 0; i < n; i++) {
 		fout << thresholds.at(i) << " " << fas.at(i) << " " << frs.at(i) << endl;
-		if (abs(fas.at(i)-frs.at(i)) < minDist) {
-			minDist = abs(fas.at(i)-frs.at(i));
+		if (abs(fas.at(i) - frs.at(i)) < minDist) {
+			minDist = abs(fas.at(i) - frs.at(i));
 			minDistNo = i;
 		}
 	}
@@ -120,41 +118,32 @@ void Segmentor::Modify(float th, bool isThDone)
 	for (int i = 0; i < dataNum; i++) {
 		for (int j = 0; j < audios.at(i)->frameNum; j++) {
 			frame = audios.at(i)->frames.at(j);
-			if (frame.scores.size() == 0) {
+			if (frame.scores.size() == 0)
 				continue;
-			}
 			scoresNum = frame.scores.size();
 			maxScore = frame.scores.at(0);
-			for (int j = 1; j < scoresNum; j++) {
-				if (frame.scores.at(j) > maxScore) {
-					maxScore = frame.scores.at(j);
-				}
-			}
+			for (int j = 1; j < scoresNum; j++)
+			if (frame.scores.at(j) > maxScore)
+				maxScore = frame.scores.at(j);
 			upScore = maxScore;
-			if (maxScore >= 0) {
-				downScore = maxScore*(1-th);
-			} else {
-				downScore = maxScore*(1+th);
-			}
+			if (maxScore >= 0)
+				downScore = maxScore*(1 - th);
+			else
+				downScore = maxScore*(1 + th);
 			inzoneNum = 0;
-			for (int j = 0; j < scoresNum; j++) {
-				if (frame.scores.at(j) >= downScore && frame.scores.at(j) <= upScore) {
-					inzoneNum++;
-				}
-			}
-			if (inzoneNum >= 3) {
-				if (!isThDone) {
-					audiosTemp.at(i)->frames.at(j).type = Unknown;
-				} else {
-					audios.at(i)->frames.at(j).type = Unknown;
-				}
-			} else {
-				if (!isThDone) {
-					audiosTemp.at(i)->frames.at(j).type = frame.type;
-				} else {
-					audios.at(i)->frames.at(j).type = frame.type;
-				}
-			}
+			for (int j = 0; j < scoresNum; j++)
+			if (frame.scores.at(j) >= downScore && frame.scores.at(j) <= upScore)
+				inzoneNum++;
+			if (inzoneNum >= 3)
+			if (!isThDone)
+				audiosTemp.at(i)->frames.at(j).type = Unknown;
+			else
+				audios.at(i)->frames.at(j).type = Unknown;
+			else
+			if (!isThDone)
+				audiosTemp.at(i)->frames.at(j).type = frame.type;
+			else
+				audios.at(i)->frames.at(j).type = frame.type;
 		}
 	}
 }
@@ -165,27 +154,22 @@ void Segmentor::CalFalseAR(float &fa, float &fr)
 	int manualNotUnknownNum = 0, detectNotUnknownNum = 0;
 	for (int i = 0; i < dataNum; i++) {
 		for (int j = 0; j < audiosTemp.at(i)->frameNum; j++) {
-			if (j >= manualLabels.at(i)->frameTypes.size()) {
+			if (j >= manualLabels.at(i)->frameTypes.size())
 				break;
-			}
-			if (manualLabels.at(i)->frameTypes.at(j) != Unknown) {
+			if (manualLabels.at(i)->frameTypes.at(j) != Unknown)
 				manualNotUnknownNum++;
-			}
-			if (audiosTemp.at(i)->frames.at(j).type != Unknown) {
+			if (audiosTemp.at(i)->frames.at(j).type != Unknown)
 				detectNotUnknownNum++;
-			}
-//			if (manualLabels.at(i)->frameTypes.at(j) == Unknown && audiosTemp.at(i)->frames.at(j).type != Unknown) {
-			if (manualLabels.at(i)->frameTypes.at(j) != audiosTemp.at(i)->frames.at(j).type && audiosTemp.at(i)->frames.at(j).type != Unknown) {
+			//			if (manualLabels.at(i)->frameTypes.at(j) == Unknown && audiosTemp.at(i)->frames.at(j).type != Unknown) {
+			if (manualLabels.at(i)->frameTypes.at(j) != audiosTemp.at(i)->frames.at(j).type && audiosTemp.at(i)->frames.at(j).type != Unknown)
 				faNum++;
-			}
-//			if (manualLabels.at(i)->frameTypes.at(j) != Unknown && audiosTemp.at(i)->frames.at(j).type == Unknown) {
-			if (manualLabels.at(i)->frameTypes.at(j) != audiosTemp.at(i)->frames.at(j).type && manualLabels.at(i)->frameTypes.at(j) != Unknown) {
+			//			if (manualLabels.at(i)->frameTypes.at(j) != Unknown && audiosTemp.at(i)->frames.at(j).type == Unknown) {
+			if (manualLabels.at(i)->frameTypes.at(j) != audiosTemp.at(i)->frames.at(j).type && manualLabels.at(i)->frameTypes.at(j) != Unknown)
 				frNum++;
-			}
 		}
 	}
-	fa = (float)faNum/detectNotUnknownNum;
-	fr = (float)frNum/manualNotUnknownNum;
+	fa = (float)faNum / detectNotUnknownNum;
+	fr = (float)frNum / manualNotUnknownNum;
 }
 
 void Segmentor::Process(int dataNo)
@@ -204,130 +188,12 @@ void Segmentor::Process(int dataNo)
 
 void Segmentor::CutByRules(int dataNo)
 {
-	vector<vector<int>> voiceNos;
-	vector<int> iTempVec;
-	iTempVec.clear();
-	for (int i = 0; i < audios.at(dataNo)->frames.size(); i++) {
-		if (audios.at(dataNo)->frames.at(i).type != Silence) {
-			if (iTempVec.size() == 0) {
-				iTempVec.push_back(i);
-			} else {
-				continue;
-			}
-		} else {
-			if (iTempVec.size() != 0) {
-				iTempVec.push_back(i-1);
-				voiceNos.push_back(iTempVec);
-				iTempVec.clear();
-			} else {
-				continue;
-			}
-		}
-	}
-	if (iTempVec.size() != 0) {
-		iTempVec.push_back(audios.at(dataNo)->frames.size()-1);
-		voiceNos.push_back(iTempVec);
-		iTempVec.clear();
-	}
-
-	Clip clip;
-	vector<int> bestClassNums;
-	int maxNum;
-	int maxNo;
-	int m;
-	for (int i = 0; i < voiceNos.size(); i++) {
-		for (int j = voiceNos.at(i).at(0); j <= voiceNos.at(i).at(1); j += (FRAME_NUM_CLIP-FRAME_NUM_OVERLAP)) {
-			bestClassNums.clear();
-			for (int k = 0; k < classesNum+3; k++) {
-				bestClassNums.push_back(0);
-			}
-			for (m = 0; m < FRAME_NUM_CLIP; m++) {
-				if (j+m > voiceNos.at(i).at(1)) {
-					break;
-				}
-				bestClassNums.at((int)audios.at(dataNo)->frames.at(j+m).type)++;
-				if (audios.at(dataNo)->frames.at(j+m).type == Unknown) {
-				}
-			}
-			maxNum = bestClassNums.at(2);
-			maxNo = 2;
-			for (int k = 3; k < classesNum+3; k++) {
-				if (bestClassNums.at(k) > maxNum) {
-					maxNum = bestClassNums.at(k);
-					maxNo = k;
-				}
-			}
-			clip.leftFrame = j;
-			clip.rightFrame = j+m;
-			if (clip.leftFrame < FRAME_NUM_CLIP) {
-				clip.leftClip = 0;
-			} else {
-				clip.leftClip = ceil((double)(clip.leftFrame+1-FRAME_NUM_CLIP) / (FRAME_NUM_CLIP-FRAME_NUM_OVERLAP));
-			}
-			if (clip.rightFrame < FRAME_NUM_CLIP) {
-				clip.rightClip = 0;
-			} else {
-				clip.rightClip = ceil((double)(clip.rightFrame+1-FRAME_NUM_CLIP) / (FRAME_NUM_CLIP-FRAME_NUM_OVERLAP)) - 1;
-			}
-			clip.type = types[maxNo];
-			audios.at(dataNo)->clips.push_back(clip);
-			if (m < FRAME_NUM_CLIP) {
-				break;
-			}
-		}
-	}
-
-	classes type1, type2, type3;
-	bool isFirst, isLast;
-	int n = 0;
-	for (int i = 0; i < audios.at(dataNo)->clips.size()-2; i++) {
-		if (audios.at(dataNo)->clips.at(i).rightFrame-FRAME_NUM_OVERLAP != audios.at(dataNo)->clips.at(i+1).leftFrame || 
-				audios.at(dataNo)->clips.at(i+1).rightFrame-FRAME_NUM_OVERLAP != audios.at(dataNo)->clips.at(i+2).leftFrame) {
-			continue;
-		}
-
-		if (i == 0) {
-			isFirst = true;
-		} else if (audios.at(dataNo)->clips.at(i).leftFrame != audios.at(dataNo)->clips.at(i-1).rightFrame-FRAME_NUM_OVERLAP) {
-			isFirst = true;
-		} else {
-			isFirst = false;
-		}
-		if (i+2 == audios.at(dataNo)->clips.size()-1) {
-			isLast = true;
-		} else if (audios.at(dataNo)->clips.at(i+2).rightFrame-FRAME_NUM_OVERLAP != audios.at(dataNo)->clips.at(i+3).leftFrame) {
-			isLast = true;
-		} else {
-			isLast = false;
-		}
-
-		type1 = audios.at(dataNo)->clips.at(i).type;
-		type2 = audios.at(dataNo)->clips.at(i+1).type;
-		type3 = audios.at(dataNo)->clips.at(i+2).type;
-		if (type1 != type2 && type2 != type3 && type3 != type1) {
-			audios.at(dataNo)->clips.at(i+1).type = type1;
-		}
-		if (type1 == type3 && type1 != type2) {
-			audios.at(dataNo)->clips.at(i+1).type = type1;
-		}
-		if (isFirst && type1 != type2 && type2 == type3) {
-			audios.at(dataNo)->clips.at(i).type = type2;
-		}
-		if (isLast && type1 == type2 && type2 != type3) {
-			audios.at(dataNo)->clips.at(i+2).type = type2;
-		}
-	}
-
-	int tempMax, tempNum;
-	for (int i = 0; i < audios.at(dataNo)->clips.size(); i++) {
-		clip = audios.at(dataNo)->clips.at(i);
-		for (int j = clip.leftFrame; j <= clip.rightFrame; j++) {
-			if (j >= audios.at(dataNo)->frames.size()) {
-				break;
-			}
-			audios.at(dataNo)->frames.at(j).type = clip.type;
-		}
-	}
+	CutByRulesBuilder cutByRulesBuild(dataNo, audios);
+	cutByRulesBuild.stepA();
+	cutByRulesBuild.stepB();
+	cutByRulesBuild.stepC();
+	cutByRulesBuild.stepD();
+	audios = cutByRulesBuild.product();
 }
 
 void Segmentor::CalErrorRate(int dataNo)
@@ -351,100 +217,106 @@ void Segmentor::CalErrorRate(int dataNo)
 	}
 	for (int i = 0; i < manualLabels.at(dataNo)->timeSegs.size(); i++) {
 		ts1 = manualLabels.at(dataNo)->timeSegs.at(i);
-		if (ts1.type == Unknown) {
+		if (ts1.type == Unknown)
 			continue;
-		}
-		cManualTime.at((int)ts1.type) += (ts1.rightTime-ts1.leftTime);
+		cManualTime.at((int)ts1.type) += (ts1.rightTime - ts1.leftTime);
 	}
 	for (int i = 0; i < audios.at(dataNo)->timeSegs.size(); i++) {
 		ts2 = audios.at(dataNo)->timeSegs.at(i);
-		if (ts2.type == Unknown) {
+		if (ts2.type == Unknown)
 			continue;
-		}
-		cDetectTime.at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
+		cDetectTime.at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
 	}
 	while (no1 < manualLabels.at(dataNo)->timeSegs.size() && no2 < audios.at(dataNo)->timeSegs.size()) {
 		ts1 = manualLabels.at(dataNo)->timeSegs.at(no1);
 		ts2 = audios.at(dataNo)->timeSegs.at(no2);
 		if (ts1.type == Unknown) {
- 			manualUnknownTime += (ts1.rightTime-ts1.leftTime);
+			manualUnknownTime += (ts1.rightTime - ts1.leftTime);
 			no1++;
 			continue;
 		}
 		if (ts2.type == Unknown) {
-			unknownTime += (ts2.rightTime-ts2.leftTime);
+			unknownTime += (ts2.rightTime - ts2.leftTime);
 			no2++;
 			continue;
 		}
 		if (BelongsTo(ts2, ts1)) {
 			if (ts1.type == ts2.type) {
-				correctTime += (ts2.rightTime-ts2.leftTime);
-				cCorrectTime.at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
-			} else {
-				wrongTime += (ts2.rightTime-ts2.leftTime);
-				cWrongTime.at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
-				misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
-				totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
+				correctTime += (ts2.rightTime - ts2.leftTime);
+				cCorrectTime.at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
+			}
+			else {
+				wrongTime += (ts2.rightTime - ts2.leftTime);
+				cWrongTime.at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
+				misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
+				totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
 			}
 			no2++;
-		} else if (BelongsTo(ts1, ts2)) {
+		}
+		else if (BelongsTo(ts1, ts2)) {
 			if (ts1.type == ts2.type) {
-				correctTime += (ts1.rightTime-ts1.leftTime);
-				cCorrectTime.at((int)ts2.type) += (ts1.rightTime-ts1.leftTime);
-			} else {
-				wrongTime += (ts1.rightTime-ts1.leftTime);
-				cWrongTime.at((int)ts2.type) += (ts1.rightTime-ts1.leftTime);
-				misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime-ts1.leftTime);
-				totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime-ts1.leftTime);
+				correctTime += (ts1.rightTime - ts1.leftTime);
+				cCorrectTime.at((int)ts2.type) += (ts1.rightTime - ts1.leftTime);
+			}
+			else {
+				wrongTime += (ts1.rightTime - ts1.leftTime);
+				cWrongTime.at((int)ts2.type) += (ts1.rightTime - ts1.leftTime);
+				misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime - ts1.leftTime);
+				totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime - ts1.leftTime);
 			}
 			no1++;
-		} else if (abs(ts1.leftTime-ts2.leftTime) <= epsilon && abs(ts1.rightTime-ts2.rightTime) <= epsilon) {
+		}
+		else if (abs(ts1.leftTime - ts2.leftTime) <= epsilon && abs(ts1.rightTime - ts2.rightTime) <= epsilon) {
 			if (ts1.type == ts2.type) {
-				correctTime += (ts2.rightTime-ts2.leftTime);
-				cCorrectTime.at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
-			} else {
-				wrongTime += (ts2.rightTime-ts2.leftTime);
-				cWrongTime.at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
-				misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
-				totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime-ts2.leftTime);
+				correctTime += (ts2.rightTime - ts2.leftTime);
+				cCorrectTime.at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
+			}
+			else {
+				wrongTime += (ts2.rightTime - ts2.leftTime);
+				cWrongTime.at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
+				misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
+				totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime - ts2.leftTime);
 			}
 			no1++;
 			no2++;
-		} else if (ts1.rightTime <= ts2.leftTime) {
+		}
+		else if (ts1.rightTime <= ts2.leftTime)
 			no1++;
-		} else if (ts1.leftTime >= ts2.rightTime) {
+		else if (ts1.leftTime >= ts2.rightTime)
 			no2++;
-		} else {
+		else {
 			if (ts1.rightTime > ts2.leftTime && ts1.rightTime < ts2.rightTime) {
 				if (ts1.type == ts2.type) {
-					correctTime += (ts1.rightTime-ts2.leftTime);
-					cCorrectTime.at((int)ts2.type) += (ts1.rightTime-ts2.leftTime);
-				} else {
-					wrongTime += (ts1.rightTime-ts2.leftTime);
-					cWrongTime.at((int)ts2.type) += (ts1.rightTime-ts2.leftTime);
-					misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime-ts2.leftTime);
-					totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime-ts2.leftTime);
+					correctTime += (ts1.rightTime - ts2.leftTime);
+					cCorrectTime.at((int)ts2.type) += (ts1.rightTime - ts2.leftTime);
+				}
+				else {
+					wrongTime += (ts1.rightTime - ts2.leftTime);
+					cWrongTime.at((int)ts2.type) += (ts1.rightTime - ts2.leftTime);
+					misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime - ts2.leftTime);
+					totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts1.rightTime - ts2.leftTime);
 				}
 				no1++;
 			}
 			if (ts1.leftTime > ts2.leftTime && ts1.leftTime < ts2.rightTime) {
 				if (ts1.type == ts2.type) {
-					correctTime += (ts2.rightTime-ts1.leftTime);
-					cCorrectTime.at((int)ts2.type) += (ts2.rightTime-ts1.leftTime);
-				} else {
-					wrongTime += (ts2.rightTime-ts1.leftTime);
-					cWrongTime.at((int)ts2.type) += (ts2.rightTime-ts1.leftTime);
-					misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime-ts1.leftTime);
-					totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime-ts1.leftTime);
+					correctTime += (ts2.rightTime - ts1.leftTime);
+					cCorrectTime.at((int)ts2.type) += (ts2.rightTime - ts1.leftTime);
+				}
+				else {
+					wrongTime += (ts2.rightTime - ts1.leftTime);
+					cWrongTime.at((int)ts2.type) += (ts2.rightTime - ts1.leftTime);
+					misclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime - ts1.leftTime);
+					totalMisclassifiedTime.at((int)ts1.type).at((int)ts2.type) += (ts2.rightTime - ts1.leftTime);
 				}
 				no2++;
 			}
 		}
 	}
 
-	float totalTime = manualLabels.at(dataNo)->timeSegs.at(manualLabels.at(dataNo)->timeSegs.size()-1).rightTime;
+	float totalTime = manualLabels.at(dataNo)->timeSegs.at(manualLabels.at(dataNo)->timeSegs.size() - 1).rightTime;
 	float manualTime = totalTime - manualUnknownTime;
-	float detectTime = audios.at(dataNo)->timeSegs.at(audios.at(dataNo)->timeSegs.size()-1).rightTime - unknownTime;
+	float detectTime = audios.at(dataNo)->timeSegs.at(audios.at(dataNo)->timeSegs.size() - 1).rightTime - unknownTime;
 	totalManualTimeAll += totalTime;
 	totalManualTime += manualTime;
 	totalDetectTime += detectTime;
@@ -458,14 +330,14 @@ void Segmentor::CalErrorRate(int dataNo)
 	}
 
 	fout.open("result/errorrate.txt", ios_base::app);
-	fout << audios.at(dataNo)->scoresFilename.substr(5, audios.at(dataNo)->scoresFilename.length()-12) << endl;
+	fout << audios.at(dataNo)->scoresFilename.substr(5, audios.at(dataNo)->scoresFilename.length() - 12) << endl;
 	fout << "	total time = " << totalTime << " s" << endl;
 	fout << "	actual time = " << manualTime << " s" << endl;
 	fout << "	detect time = " << detectTime << " s" << endl;
 	fout << "	c_time = " << correctTime << " s" << endl;
 	fout << "	w_time = " << wrongTime << " s" << endl;
-	fout << "	correct% = " << (float)correctTime/detectTime*100 << "%" << endl;
-	fout << "	w_error% = " << (float)wrongTime/detectTime*100 << "%" << endl;
+	fout << "	correct% = " << (float)correctTime / detectTime * 100 << "%" << endl;
+	fout << "	w_error% = " << (float)wrongTime / detectTime * 100 << "%" << endl;
 	for (int i = 2; i < classesNum; i++) {
 		fout << "	misclassify : " << endl;
 		fout << "		" << classNames[i] << " : " << endl;
@@ -473,13 +345,13 @@ void Segmentor::CalErrorRate(int dataNo)
 		fout << "			detect time = " << cDetectTime.at(i) << " s" << endl;
 		fout << "			c_time = " << cCorrectTime.at(i) << " s" << endl;
 		fout << "			w_time = " << cWrongTime.at(i) << " s" << endl;
-		fout << "			correct% = " << (float)cCorrectTime.at(i)/cDetectTime.at(i)*100 << "%" << endl;
-		fout << "			w_error% = " << (float)cWrongTime.at(i)/cDetectTime.at(i)*100 << "%" << endl;
+		fout << "			correct% = " << (float)cCorrectTime.at(i) / cDetectTime.at(i) * 100 << "%" << endl;
+		fout << "			w_error% = " << (float)cWrongTime.at(i) / cDetectTime.at(i) * 100 << "%" << endl;
 		for (int j = 2; j < classesNum; j++) {
 			if (j != i) {
-				fout << "		--> " << classNames[j] << " : " 
-					<< misclassifiedTime.at(i).at(j) << " s (" 
-					<< misclassifiedTime.at(i).at(j)/detectTime*100 << "%)" << endl;
+				fout << "		--> " << classNames[j] << " : "
+					<< misclassifiedTime.at(i).at(j) << " s ("
+					<< misclassifiedTime.at(i).at(j) / detectTime * 100 << "%)" << endl;
 			}
 		}
 	}
@@ -496,8 +368,8 @@ void Segmentor::OutputTotalErrorRateToFile()
 	fout << "	detect time = " << totalDetectTime << " s" << endl;
 	fout << "	c_time = " << totalCorrectTime << " s" << endl;
 	fout << "	w_time = " << totalWrongTime << " s" << endl;
-	fout << "	correct% = " << (float)totalCorrectTime/totalDetectTime*100 << "%" << endl;
-	fout << "	w_error% = " << (float)totalWrongTime/totalDetectTime*100 << "%" << endl;
+	fout << "	correct% = " << (float)totalCorrectTime / totalDetectTime * 100 << "%" << endl;
+	fout << "	w_error% = " << (float)totalWrongTime / totalDetectTime * 100 << "%" << endl;
 	for (int i = 2; i < classesNum; i++) {
 		fout << "	misclassify : " << endl;
 		fout << "		" << classNames[i] << " : " << endl;
@@ -505,13 +377,13 @@ void Segmentor::OutputTotalErrorRateToFile()
 		fout << "			detect time = " << cTotalDetectTime.at(i) << " s" << endl;
 		fout << "			c_time = " << cTotalCorrectTime.at(i) << " s" << endl;
 		fout << "			w_time = " << cTotalWrongTime.at(i) << " s" << endl;
-		fout << "			correct% = " << (float)cTotalCorrectTime.at(i)/cTotalDetectTime.at(i)*100 << "%" << endl;
-		fout << "			w_error% = " << (float)cTotalWrongTime.at(i)/cTotalDetectTime.at(i)*100 << "%" << endl;
+		fout << "			correct% = " << (float)cTotalCorrectTime.at(i) / cTotalDetectTime.at(i) * 100 << "%" << endl;
+		fout << "			w_error% = " << (float)cTotalWrongTime.at(i) / cTotalDetectTime.at(i) * 100 << "%" << endl;
 		for (int j = 2; j < classesNum; j++) {
 			if (j != i) {
-				fout << "		--> " << classNames[j] << " : " 
-					<< totalMisclassifiedTime.at(i).at(j) << " s (" 
-					<< totalMisclassifiedTime.at(i).at(j)/totalDetectTime*100 << "%)" << endl;
+				fout << "		--> " << classNames[j] << " : "
+					<< totalMisclassifiedTime.at(i).at(j) << " s ("
+					<< totalMisclassifiedTime.at(i).at(j) / totalDetectTime * 100 << "%)" << endl;
 			}
 		}
 	}
@@ -520,15 +392,14 @@ void Segmentor::OutputTotalErrorRateToFile()
 
 bool Segmentor::BelongsTo(TimeSeg tsA, TimeSeg tsB)
 {
-	if (tsA.leftTime > tsB.leftTime && tsA.rightTime < tsB.rightTime) {
+	if (tsA.leftTime > tsB.leftTime && tsA.rightTime < tsB.rightTime)
 		return true;
-	} else if (abs(tsA.leftTime-tsB.leftTime) <= epsilon && tsA.rightTime < tsB.rightTime) {
+	else if (abs(tsA.leftTime - tsB.leftTime) <= epsilon && tsA.rightTime < tsB.rightTime)
 		return true;
-	} else if (tsA.leftTime > tsB.leftTime && abs(tsA.rightTime-tsB.rightTime) <= epsilon) {
+	else if (tsA.leftTime > tsB.leftTime && abs(tsA.rightTime - tsB.rightTime) <= epsilon)
 		return true;
-	} else {
+	else
 		return false;
-	}
 }
 
 void Segmentor::Clear()

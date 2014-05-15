@@ -1,37 +1,37 @@
-﻿生成启动时间为 2014/4/11 星期五 21:17:07。
+﻿生成启动时间为 2014/5/15 星期四 19:27:47。
      1>项目“E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Segmentation\Segmentation.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         D:\VisualStudio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt Audio.cpp Main.cpp ManualLabel.cpp Segmentor.cpp Utility.cpp
-         Utility.cpp
+         D:\VisualStudio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt Audio.cpp Main.cpp ManualLabel.cpp Segmentor.cpp TimeSegsBuilder.cpp Utility.cpp
          Segmentor.cpp
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(40): warning C4305: “=”: 从“double”到“float”截断
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(87): warning C4305: “初始化”: 从“double”到“float”截断
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(87): warning C4305: “+=”: 从“double”到“float”截断
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(147): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
-                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(140) : 忽略“j”的定义
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(141): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
+                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(136) : 忽略“j”的定义
                  e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(121) : 使用“j”的定义
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(149): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
-                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(140) : 忽略“j”的定义
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(143): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
+                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(136) : 忽略“j”的定义
                  e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(121) : 使用“j”的定义
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(153): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
-                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(140) : 忽略“j”的定义
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(146): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
+                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(136) : 忽略“j”的定义
                  e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(121) : 使用“j”的定义
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(155): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
-                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(140) : 忽略“j”的定义
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(148): warning C4258: “j”: 忽略 For 循环中的定义；使用封闭范围中的定义
+                 e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(136) : 忽略“j”的定义
                  e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(121) : 使用“j”的定义
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(168): warning C4018: “>=”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(210): warning C4018: “<”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(238): warning C4018: “<”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(265): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(270): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(283): warning C4018: “<”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(322): warning C4018: “<”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(325): warning C4018: “>=”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(321): warning C4101: “tempNum”: 未引用的局部变量
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(321): warning C4101: “tempMax”: 未引用的局部变量
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(352): warning C4018: “<”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(359): warning C4018: “<”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(366): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(159): warning C4018: “>=”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(196): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(224): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(235): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(246): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(250): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(261): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(294): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(297): warning C4018: “>=”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(293): warning C4101: “tempNum”: 未引用的局部变量
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(293): warning C4101: “tempMax”: 未引用的局部变量
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(323): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(329): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\segmentor.cpp(335): warning C4018: “<”: 有符号/无符号不匹配
          ManualLabel.cpp
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(66): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(67): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
@@ -40,26 +40,28 @@
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(80): warning C4101: “m”: 未引用的局部变量
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(96): warning C4018: “<”: 有符号/无符号不匹配
      1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(97): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(101): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(103): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(107): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(102): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(104): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\manuallabel.cpp(109): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+         正在生成代码...
+         正在跳过...(未检测到相关更改)
+         Utility.cpp
+         TimeSegsBuilder.cpp
          Main.cpp
          Audio.cpp
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\audio.cpp(93): warning C4018: “<”: 有符号/无符号不匹配
-     1>e:\2014spring\c++oop\project\音频场景分割\程序\segmentation\segmentation\audio.cpp(107): warning C4018: “<”: 有符号/无符号不匹配
-         正在生成代码...
        Link:
          D:\VisualStudio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Debug\Segmentation.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Debug\Segmentation.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Debug\Segmentation.lib" /MACHINE:X86 /SAFESEH Debug\Audio.obj
          Debug\Main.obj
          Debug\ManualLabel.obj
          Debug\Segmentor.obj
+         Debug\TimeSegsBuilder.obj
          Debug\Utility.obj
      1>Audio.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
          Segmentation.vcxproj -> E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Debug\Segmentation.exe
        BscMake:
-         D:\VisualStudio\VC\bin\bscmake.exe /nologo /o"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Debug\Segmentation.bsc" /n Debug\Audio.sbr Debug\Main.sbr Debug\ManualLabel.sbr Debug\Segmentor.sbr Debug\Utility.sbr
+         D:\VisualStudio\VC\bin\bscmake.exe /nologo /o"E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Debug\Segmentation.bsc" /n Debug\Audio.sbr Debug\Main.sbr Debug\ManualLabel.sbr Debug\Segmentor.sbr Debug\TimeSegsBuilder.sbr Debug\Utility.sbr
      1>已完成生成项目“E:\2014Spring\C++OOP\Project\音频场景分割\程序\Segmentation\Segmentation\Segmentation.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:04.53
+已用时间 00:00:06.10

@@ -89,15 +89,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="CutByRulesBuilder.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ManualLabel.cpp" />
     <ClCompile Include="Segmentor.cpp" />
+    <ClCompile Include="TimeSegsBuilder.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="CutByRulesBuilder.h" />
     <ClInclude Include="ManualLabel.h" />
     <ClInclude Include="Segmentor.h" />
+    <ClInclude Include="TimeSegsBuilder.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
